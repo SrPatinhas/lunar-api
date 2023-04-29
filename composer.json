@@ -1,0 +1,13 @@
+{
+    "name": "srpatinhas/lunar-api",
+    "type": "project",
+    "description": "Lunar API base",
+    "keywords": [
+        "lunar",
+        "lunar API",
+        "e-commerce"
+    ],
+    "license": "GNU3",
+    "require": {
+    }
+}
