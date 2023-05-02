@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\LunarAPI\Product;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -18,7 +18,7 @@ class ProductOptionsResource extends JsonResource
 
         return [
             "id"        => $this->id,
-            "name"      => $this->name->pt,
+            "name"      => $this->name->en, // TODO -> check the current Store language or go to default
             "handle"    => $this->handle,
             "values"    => ProductOptionValuesResource::collection($this->values),
         ];

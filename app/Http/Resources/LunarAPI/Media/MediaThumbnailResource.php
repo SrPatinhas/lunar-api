@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\LunarAPI\Media;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;

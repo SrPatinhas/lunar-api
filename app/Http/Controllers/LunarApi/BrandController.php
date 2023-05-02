@@ -3,11 +3,8 @@
 namespace App\Http\Controllers\LunarApi;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\BrandResource;
-use App\Http\Resources\ProductsResource;
-use Illuminate\Http\Request;
+use App\Http\Resources\LunarAPI\Brand\BrandResource;
 use Lunar\Models\Brand;
-use Lunar\Models\Product;
 
 class BrandController extends Controller
 {

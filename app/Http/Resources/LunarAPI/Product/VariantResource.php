@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\LunarAPI\Product;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class TagsResource extends JsonResource
+class VariantResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -14,10 +14,11 @@ class TagsResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-
         return [
             "id"        => $this->id,
-            "tag"       => $this->value
+            "tax"       => new TaxResource($this->tax),
+            "stock"     => $this->stock,
+            "price"     => PriceResource::collection($this->prices)
         ];
     }
 }
