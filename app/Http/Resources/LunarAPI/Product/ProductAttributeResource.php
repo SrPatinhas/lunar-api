@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\LunarAPI\Product;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -16,11 +16,10 @@ class ProductAttributeResource extends JsonResource
     {
         return parent::toArray($request);
         // TODO
-        //dd($this);//->getValue()["en"]->getValue());
+        //dd($this);//->getValue()["en"]->getValue()); , // TODO -> check the current Store language or go to default
         return [
             "name" => [
                 "en" => "White T-shirt Nike",
-                "pt" => "T-shirt Branca Nike"
             ],
             "size" => "xl",
             "color" => "white",
