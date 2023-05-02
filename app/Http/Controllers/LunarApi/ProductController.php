@@ -3,14 +3,12 @@
 namespace App\Http\Controllers\LunarApi;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\ProductDetailResource;
-use App\Http\Resources\ProductOptionsResource;
-use App\Http\Resources\ProductsResource;
+use App\Http\Resources\LunarAPI\Product\ProductDetailResource;
+use App\Http\Resources\LunarAPI\Product\ProductOptionsResource;
+use App\Http\Resources\LunarAPI\Product\ProductsResource;
 use Illuminate\Http\Request;
-use Lunar\Models\Attribute;
 use Lunar\Models\Product;
 use Lunar\Models\ProductOption;
-use Lunar\Models\ProductOptionValue;
 
 class ProductController extends Controller
 {

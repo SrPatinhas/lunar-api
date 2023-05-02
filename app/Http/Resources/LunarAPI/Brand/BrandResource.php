@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\LunarAPI\Brand;
 
+use App\Http\Resources\LunarAPI\Media\MediaThumbnailResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
