@@ -6,7 +6,6 @@ use App\Http\Controllers\LunarApi\CollectionController;
 use App\Http\Controllers\LunarApi\OrderController;
 use App\Http\Controllers\LunarApi\ProductController;
 use App\Http\Controllers\LunarApi\UserController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,9 +22,11 @@ Route::get('/brands', [BrandController::class, 'list']);
 
 Route::controller(CollectionController::class)->group(function () {
     // return a list of collections
-    Route::get('/collections',              'collections');
+    Route::get('/collections',                      'list');
     // return the products associated to a collection
-    Route::get('/collection/{id}/{slug}',   'collections');
+    Route::get('/collection-group/{id}/{slug?}',     'detailGroup');
+    // return the products associated to a collection
+    Route::get('/collection/{id}/{slug?}',           'detailCollection');
 });
 
 Route::controller(ProductController::class)->group(function () {
