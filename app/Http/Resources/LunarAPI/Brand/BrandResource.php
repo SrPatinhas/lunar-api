@@ -15,10 +15,13 @@ class BrandResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
+        //Make sure thumbnail is not null or it will throw an error (Call to a member function first() on null)
+        $logo = ($this->thumbnail != null) ? new MediaThumbnailResource($this->thumbnail->first()) : "";
+
         return [
             "id"    => $this->id,
             "name"  => $this->name,
-            "logo"  => new MediaThumbnailResource($this->thumbnail->first()),
+            "logo"  => $logo,
         ];
     }
 }
