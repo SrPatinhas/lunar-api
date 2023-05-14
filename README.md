@@ -60,6 +60,10 @@ This repo is to just have a small base to start your E-Commerce with [Lunar](htt
 - [ ] List of Groups
 - [ ] List of Channels
 
+## Files
+
+In this repo, there are files associated to the released versions like configs or views. Those can be deleted or changed in each project.
+
 ## Contributing
 
 Anyone is able to contribute to this wrapper! And thank you for the ones that do!
