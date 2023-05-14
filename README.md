@@ -7,6 +7,9 @@ This repository is provided as a reference to learn how to use [Lunar](https://l
 
 This repo is to just have a small base to start your E-Commerce with [Lunar](https://lunarphp.io).
 
+### Current version of Lunar
+- 0.3
+
 ## RoadMap
 
 - **Products**
@@ -28,6 +31,7 @@ This repo is to just have a small base to start your E-Commerce with [Lunar](htt
 
 - **Filters**
 - [ ] List the possible Filters
+- [ ] List of Tags
 
 
 - **Orders** _(probably for the authenticated/owner user?)_
@@ -42,6 +46,19 @@ This repo is to just have a small base to start your E-Commerce with [Lunar](htt
   - [ ] Validate Shipping
   - [ ] Validate Prices
   - [ ] Validate Payments
+
+
+- **Others**
+- [ ] List of Languages
+- [ ] Set Language
+ 
+
+- [ ] List of Currencies
+- [ ] Set Currencies
+
+
+- [ ] List of Groups
+- [ ] List of Channels
 
 ## Contributing
 
