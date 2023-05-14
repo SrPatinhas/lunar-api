@@ -48,5 +48,11 @@ return [
             'mailers' => [],
             'notifications' => [],
         ],
+        'received' => [
+            'label' => 'Received',
+            'color' => '#1b7e0f',
+            'mailers' => [],
+            'notifications' => [],
+        ],
     ],
 ];
