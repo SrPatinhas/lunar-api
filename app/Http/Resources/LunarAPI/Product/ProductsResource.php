@@ -24,7 +24,7 @@ class ProductsResource extends JsonResource
             "brand"         => new BrandResource($this->brand),
             "attributes"    => $this->attribute_data,
             "variant"       => $this->variants ? VariantResource::collection($this->variants) : [],
-            "thumbnail"     => $this->thumbnail ? new MediaThumbnailResource($this->thumbnail->first()) : "",
+            "thumbnail"     => $this->thumbnail ? new MediaThumbnailResource($this->thumbnail) : null,
         ];
     }
 }

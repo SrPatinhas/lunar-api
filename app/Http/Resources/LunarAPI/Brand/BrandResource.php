@@ -18,7 +18,7 @@ class BrandResource extends JsonResource
         return [
             "id"    => $this->id,
             "name"  => $this->name,
-            "logo"  => new MediaThumbnailResource($this->thumbnail->first()),
+            "logo"  => $this->thumbnail ? new MediaThumbnailResource($this->thumbnail) : null
         ];
     }
 }
