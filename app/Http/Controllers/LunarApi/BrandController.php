@@ -23,7 +23,7 @@ class BrandController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function detail(string $id, string $slug)
     {
         //
     }

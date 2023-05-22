@@ -19,34 +19,44 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/brands', [BrandController::class, 'list']);
+Route::prefix('brands')->controller(BrandController::class)->group(function () {
+    Route::get('/',             'list');
+    // return the products associated to a collection
+    Route::get('/{id}/{slug?}', 'detail');
+});
 
-Route::controller(CollectionController::class)->group(function () {
+Route::prefix('collections')->controller(CollectionController::class)->group(function () {
     // return a list of collections
-    Route::get('/collections',                      'list');
+    Route::get('/',                     'list');
     // return the products associated to a collection
-    Route::get('/collection-group/{id}/{slug?}',     'detailGroup');
+    Route::get('/group/{id}/{slug?}',   'detailGroup');
     // return the products associated to a collection
-    Route::get('/collection/{id}/{slug?}',           'detailCollection');
+    Route::get('/detail/{id}/{slug?}',  'detailCollection');
 });
 
-Route::controller(ProductController::class)->group(function () {
+Route::prefix('products')->controller(ProductController::class)->group(function () {
     // return the list of products, based on search/filters terms
-    Route::get('/products',             'list');
+    Route::get('/',             'list');
     // return the product detail information
-    Route::get('/product/{id}/{slug}',  'detail');
-    // return an object of possible filters for the products
-    Route::get('/filters',              'filters');
-    // return a list of "quick" search
-    Route::get('/search',               'search');
+    Route::get('/{id}/{slug}',  'detail');
     // return a list of featured products, based on some filter
-    Route::get('/products-featured',    'featured');
+    Route::get('/featured',     'featured');
 });
 
 
-Route::controller(CartController::class)->group(function () {
+Route::controller(SearchController::class)->group(function () {
+    // return an object of possible filters for the products
+    Route::get('/filters',      'filters');
+    // return a list of "quick" search
+    Route::get('/mini-search',  'quickSearch');
+    // return a list of all searched items
+    Route::get('/search',       'search');
+});
+
+
+Route::prefix('cart')->controller(CartController::class)->group(function () {
     // gets the list of items in the cart and the basic details
-    Route::get('/cart',                 'cart');
+    Route::get('/',                     'cart');
     // add item to the cart list
     Route::post('/add',                 'addItem');
     // updates the cart number of a specific cart item
@@ -56,13 +66,13 @@ Route::controller(CartController::class)->group(function () {
     // check if a certain discount is valid for the current cart and applies it
     Route::post('/discount',            'discount');
     // return list of suggestions based on cart products
-    Route::get('/suggestions',     'associated');
+    Route::get('/suggestions',          'associated');
 });
 
 
-Route::controller(CheckoutController::class)->group(function () {
+Route::prefix('checkout')->controller(CheckoutController::class)->group(function () {
     // get basic information for the checkout page
-    Route::get('/index',                'index');
+    Route::get('/',                     'index');
     // check if a certain discount is valid for the current cart
     Route::post('/discount',            'discount');
     // complete the order
@@ -70,23 +80,23 @@ Route::controller(CheckoutController::class)->group(function () {
 });
 
 
-Route::controller(OrderController::class)->group(function () {
+Route::prefix('orders')->controller(OrderController::class)->group(function () {
     // return a list of orders made by the logged user
-    Route::get('/orders',               'list');
+    Route::get('/',               'list');
     // return a order detail
-    Route::get('/order/{id}',           'detail');
+    Route::get('/{id}',           'detail');
     // return a order detail, based on the order ID and the email of the order
-    Route::post('/order/{id}',          'detail-anonymous');
+    Route::post('/{id}',          'detailAnonymous');
     // return the information about an order, with tracking information if possible
-    Route::get('/order/{id}/tracking',  'tracking');
+    Route::get('/{id}/tracking',  'tracking');
 });
 
 
-Route::controller(UserController::class)->group(function () {
+Route::prefix('account')->controller(UserController::class)->group(function () {
     // return the information about the user and customer
-    Route::get('/account',                      'index');
+    Route::get('/',                      'index');
     // return the whishlist of the user
-    Route::get('/account/whishlist',            'whishlist');
+    Route::get('/whishlist',            'whishlist');
     // update the user password
-    Route::post('/account/security/password',   'security');
+    Route::post('/security/password',   'security');
 });
