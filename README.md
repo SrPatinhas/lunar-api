@@ -39,13 +39,19 @@ This repo is to just have a small base to start your E-Commerce with [Lunar](htt
 - [ ] List order detail
 
 
-- **Cart/Checkout**
+- **Cart**
 - [ ] List Cart
+- [ ] add to Cart
+- [ ] remove from Cart
+- [ ] update quantity in Cart
+
+
+- **Checkout**
 - [ ] validate checkout
-  - [ ] Validate Discounts
-  - [ ] Validate Shipping
-  - [ ] Validate Prices
-  - [ ] Validate Payments
+- [ ] Validate Discounts
+- [ ] Validate Shipping
+- [ ] Validate Prices
+- [ ] Validate Payments
 
 
 - **Others**

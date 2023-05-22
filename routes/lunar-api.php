@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\LunarApi\BrandController;
 use App\Http\Controllers\LunarApi\CartController;
+use App\Http\Controllers\LunarApi\CheckoutController;
 use App\Http\Controllers\LunarApi\CollectionController;
 use App\Http\Controllers\LunarApi\OrderController;
 use App\Http\Controllers\LunarApi\ProductController;
@@ -44,16 +45,30 @@ Route::controller(ProductController::class)->group(function () {
 
 
 Route::controller(CartController::class)->group(function () {
+    // gets the list of items in the cart and the basic details
     Route::get('/cart',                 'cart');
-    // get basic information for the checkout page
-    Route::get('/checkout',             'checkout');
-    // check if a certain discount is valid for the current cart
-    Route::post('/checkout/discount',   'discount');
-    // complete the order
-    Route::post('/checkout/order',      'order');
+    // add item to the cart list
+    Route::post('/add',                 'addItem');
+    // updates the cart number of a specific cart item
+    Route::put('/update',               'updateItem');
+    // removes item from the cart list
+    Route::delete('/remove',            'removeItem');
+    // check if a certain discount is valid for the current cart and applies it
+    Route::post('/discount',            'discount');
     // return list of suggestions based on cart products
-    Route::get('/cart-suggestions',     'associated');
+    Route::get('/suggestions',     'associated');
 });
+
+
+Route::controller(CheckoutController::class)->group(function () {
+    // get basic information for the checkout page
+    Route::get('/index',                'index');
+    // check if a certain discount is valid for the current cart
+    Route::post('/discount',            'discount');
+    // complete the order
+    Route::post('/order',               'order');
+});
+
 
 Route::controller(OrderController::class)->group(function () {
     // return a list of orders made by the logged user
