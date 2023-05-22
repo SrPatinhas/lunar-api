@@ -16,23 +16,19 @@ This repo is to just have a small base to start your E-Commerce with [Lunar](htt
 - [X] List Brands
 - [X] List Products for a specific Brand
 
+#### Collections
+- [ ] List Collections
+- [ ] List Products for a specific Collection
+
 #### Products
 - [ ] List Products
 - [ ] Product Details
 - [ ] List Product Variants
 - [ ] List Products associated with given product
 
-#### Collections
-- [ ] List Collections
-- [ ] List Products for a specific Collection
-
 #### Filters
 - [ ] List the possible Filters
 - [ ] List of Tags
-
-#### Orders `(Probably for the authenticated/owner user?)`
-- [ ] List Orders
-- [ ] List order detail
 
 #### Cart
 - [ ] List Cart
@@ -47,15 +43,19 @@ This repo is to just have a small base to start your E-Commerce with [Lunar](htt
 - [ ] Validate Prices
 - [ ] Validate Payments
 
+#### Orders `(Probably for the authenticated/owner user?)`
+- [ ] List Orders
+- [ ] List order detail
+
 #### Others
 - [ ] List of Languages
 - [ ] Set Language
- 
 
+ `----------------------`
 - [ ] List of Currencies
 - [ ] Set Currencies
 
-
+`----------------------`
 - [ ] List of Groups
 - [ ] List of Channels
 
