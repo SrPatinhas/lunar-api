@@ -12,49 +12,42 @@ This repo is to just have a small base to start your E-Commerce with [Lunar](htt
 
 ## RoadMap
 
-- **Products**
+#### Brands
+- [X] List Brands
+- [X] List Products for a specific Brand
+
+#### Products
 - [ ] List Products
 - [ ] Product Details
 - [ ] List Product Variants
 - [ ] List Products associated with given product
 
-
-- **Brands**
-- [ ] List Brands
-- [ ] List Products for a specific Brand
-
-
-- **Collections**
+#### Collections
 - [ ] List Collections
 - [ ] List Products for a specific Collection
 
-
-- **Filters**
+#### Filters
 - [ ] List the possible Filters
 - [ ] List of Tags
 
-
-- **Orders** _(probably for the authenticated/owner user?)_
+#### Orders `(Probably for the authenticated/owner user?)`
 - [ ] List Orders
 - [ ] List order detail
 
-
-- **Cart**
+#### Cart
 - [ ] List Cart
 - [ ] add to Cart
 - [ ] remove from Cart
 - [ ] update quantity in Cart
 
-
-- **Checkout**
+#### Checkout
 - [ ] validate checkout
 - [ ] Validate Discounts
 - [ ] Validate Shipping
 - [ ] Validate Prices
 - [ ] Validate Payments
 
-
-- **Others**
+#### Others
 - [ ] List of Languages
 - [ ] Set Language
  
