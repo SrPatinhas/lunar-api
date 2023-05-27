@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Http\Resources\LunarAPI\Brand;
+namespace App\Http\Resources\LunarAPI\Collection;
 
-use App\Http\Resources\LunarAPI\Media\MediaThumbnailResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -16,9 +15,11 @@ class CollectionGroupResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            "id"    => $this->id,
-            "name"  => $this->name,
-            "logo"  => new MediaThumbnailResource($this->thumbnail->first()),
+            "id"        => $this->id,
+            "name"      => $this->name,
+            "handle"    => $this->handle,
+
+            "collections"   => CollectionResource::collection($this->collections)
         ];
     }
 }
