@@ -2740,16 +2740,16 @@
         },
         {
             "name": "lunarphp/lunar",
-            "version": "0.3.0-beta.3",
+            "version": "0.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/lunarphp/lunar.git",
-                "reference": "3f31a58f3f4896e460e1eaec6fa0789e8ad307ea"
+                "reference": "7d755550bd82742e8c7748fda0306d2c536c2351"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/lunarphp/lunar/zipball/3f31a58f3f4896e460e1eaec6fa0789e8ad307ea",
-                "reference": "3f31a58f3f4896e460e1eaec6fa0789e8ad307ea",
+                "url": "https://api.github.com/repos/lunarphp/lunar/zipball/7d755550bd82742e8c7748fda0306d2c536c2351",
+                "reference": "7d755550bd82742e8c7748fda0306d2c536c2351",
                 "shasum": ""
             },
             "require": {
@@ -2780,6 +2780,7 @@
             "require-dev": {
                 "laravel/pint": "^1.1",
                 "mockery/mockery": "^1.4.4",
+                "nunomaduro/larastan": "^2.0",
                 "orchestra/testbench": "^7.0|^8.0",
                 "phpunit/phpunit": "^9.5",
                 "symplify/monorepo-builder": "^10.0"
@@ -2830,7 +2831,7 @@
             "description": "Lunar Monorepo",
             "support": {
                 "issues": "https://github.com/lunarphp/lunar/issues",
-                "source": "https://github.com/lunarphp/lunar/tree/0.3.0-beta.3"
+                "source": "https://github.com/lunarphp/lunar/tree/0.3.0"
             },
             "funding": [
                 {
@@ -2838,7 +2839,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-04-27T08:29:26+00:00"
+            "time": "2023-05-24T09:45:05+00:00"
         },
         {
             "name": "maennchen/zipstream-php",
