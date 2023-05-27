@@ -48,8 +48,8 @@ This repo is to just have a small base to start your E-Commerce with [Lunar](htt
 - [ ] List order detail
 
 #### Others
-- [ ] List of Languages
-- [ ] Set Language
+- [X] List of Languages
+- [X] Set Language
 
  `----------------------`
 - [ ] List of Currencies

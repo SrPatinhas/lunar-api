@@ -4,6 +4,7 @@ use App\Http\Controllers\LunarApi\BrandController;
 use App\Http\Controllers\LunarApi\CartController;
 use App\Http\Controllers\LunarApi\CheckoutController;
 use App\Http\Controllers\LunarApi\CollectionController;
+use App\Http\Controllers\LunarApi\LangController;
 use App\Http\Controllers\LunarApi\OrderController;
 use App\Http\Controllers\LunarApi\ProductController;
 use App\Http\Controllers\LunarApi\UserController;
@@ -99,4 +100,11 @@ Route::prefix('account')->controller(UserController::class)->group(function () {
     Route::get('/whishlist',            'whishlist');
     // update the user password
     Route::post('/security/password',   'security');
+});
+
+Route::prefix('lang')->controller(LangController::class)->group(function () {
+    // returns the list of languages available
+    Route::get('/',         'list');
+    // saves the language defined by the user on the website
+    Route::post('/{lang}',  'update');
 });
