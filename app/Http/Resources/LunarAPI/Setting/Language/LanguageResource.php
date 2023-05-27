@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Resources\LunarAPI\Language;
+namespace App\Http\Resources\LunarAPI\Setting\Language;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;

@@ -4,7 +4,7 @@ use App\Http\Controllers\LunarApi\BrandController;
 use App\Http\Controllers\LunarApi\CartController;
 use App\Http\Controllers\LunarApi\CheckoutController;
 use App\Http\Controllers\LunarApi\CollectionController;
-use App\Http\Controllers\LunarApi\LangController;
+use App\Http\Controllers\LunarApi\SettingController;
 use App\Http\Controllers\LunarApi\OrderController;
 use App\Http\Controllers\LunarApi\ProductController;
 use App\Http\Controllers\LunarApi\UserController;
@@ -102,9 +102,14 @@ Route::prefix('account')->controller(UserController::class)->group(function () {
     Route::post('/security/password',   'security');
 });
 
-Route::prefix('lang')->controller(LangController::class)->group(function () {
+Route::prefix('settings')->controller(SettingController::class)->group(function () {
     // returns the list of languages available
-    Route::get('/',         'list');
+    Route::get('/language',     'listLanguage');
     // saves the language defined by the user on the website
-    Route::post('/{lang}',  'update');
+    Route::post('/language',    'updateLanguage');
+
+    // returns the list of languages available
+    Route::get('/currency',     'listCurrency');
+    // saves the language defined by the user on the website
+    Route::post('/currency',    'updateCurrency');
 });
