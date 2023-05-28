@@ -14,7 +14,7 @@ class LanguageRequest extends FormRequest
      */
     public function rules(): array
     {
-        $db_prefix = config('lunar.database.prefix');
+        $db_prefix = config('lunar.database.table_prefix');
         return [
             'code' => "required|exists:" . $db_prefix . "languages"
         ];

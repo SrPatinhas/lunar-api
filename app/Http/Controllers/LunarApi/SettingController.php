@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\LunarApi;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\LunarAPI\Setting\Language\LanguageResource;
 use App\Http\Requests\LunarAPI\Setting\Language\LanguageRequest;
 use App\Http\Resources\LunarAPI\Setting\Currency\CurrencyResource;
-use App\Http\Resources\LunarAPI\Settings\Language\LanguageResource;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Lunar\Models\Currency;
 use Lunar\Models\Language;
 
@@ -26,14 +27,20 @@ class SettingController extends Controller
      */
     public function updateLanguage(LanguageRequest $request)
     {
-        $brands = Language::where('code', $request->code)->get();
-
-        if($brands) {
-            App::setLocale($brands->code);
-        } else {
-            $brands = Language::where('default', 1)->get();
-            App::setLocale($brands->code);
+        $notFoundMessage = "";
+        $lang = Language::where('code', $request->code)->first();
+        // if language not found, default to the default language
+        if(!$lang) {
+            $lang = Language::where('default', 1)->first();
+            $notFoundMessage = ", as requested language was not found on our system";
         }
+
+        App::setLocale($lang->code);
+
+        return response()->json([
+            'status' => '200',
+            'message' => "Language set to '$lang->code'$notFoundMessage",
+        ]);
     }
 
     /**
@@ -51,13 +58,13 @@ class SettingController extends Controller
      */
     public function updateCurrency(CurrencyRequest $request)
     {
-        $currency = Currency::where('code', $request->code)->get();
+        $currency = Currency::where('code', $request->code)->first();
 
         if($currency) {
             // Via the global "session" helper...
             session(['currency' => $currency->code]);
         } else {
-            $currency = Currency::where('default', 1)->get();
+            $currency = Currency::where('default', 1)->first();
             session(['currency' => $currency->code]);
         }
     }
