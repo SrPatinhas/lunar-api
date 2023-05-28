@@ -113,3 +113,9 @@ Route::prefix('settings')->controller(SettingController::class)->group(function 
     // saves the language defined by the user on the website
     Route::post('/currency',    'updateCurrency');
 });
+
+
+// return this response if not found
+Route::fallback(function (){
+    abort(404, 'API resource not found');
+});
