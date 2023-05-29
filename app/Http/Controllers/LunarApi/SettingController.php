@@ -3,11 +3,14 @@
 namespace App\Http\Controllers\LunarApi;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\LunarAPI\Setting\Currency\CurrencyRequest;
 use App\Http\Resources\LunarAPI\Setting\Language\LanguageResource;
 use App\Http\Requests\LunarAPI\Setting\Language\LanguageRequest;
 use App\Http\Resources\LunarAPI\Setting\Currency\CurrencyResource;
+use App\Modifiers\ShippingModifier;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use Lunar\Base\ShippingManifest;
 use Lunar\Models\Currency;
 use Lunar\Models\Language;
 
@@ -38,7 +41,7 @@ class SettingController extends Controller
         App::setLocale($lang->code);
 
         return response()->json([
-            'status' => '200',
+            'status' => 200,
             'message' => "Language set to '$lang->code'$notFoundMessage",
         ]);
     }
@@ -58,14 +61,19 @@ class SettingController extends Controller
      */
     public function updateCurrency(CurrencyRequest $request)
     {
+        $notFoundMessage = "";
         $currency = Currency::where('code', $request->code)->first();
 
-        if($currency) {
-            // Via the global "session" helper...
-            session(['currency' => $currency->code]);
-        } else {
+        // if currency not found, default to the default currency
+        if(!$currency) {
             $currency = Currency::where('default', 1)->first();
-            session(['currency' => $currency->code]);
+            $notFoundMessage = ", as requested currency was not found on our system";
         }
+        session(['currency' => $currency->code]);
+
+        return response()->json([
+            'status' => 200,
+            'message' => "Currency set to '$currency->code'$notFoundMessage",
+        ]);
     }
 }
