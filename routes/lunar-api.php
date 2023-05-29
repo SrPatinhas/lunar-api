@@ -112,6 +112,11 @@ Route::prefix('settings')->controller(SettingController::class)->group(function 
     Route::get('/currency',     'listCurrency');
     // saves the language defined by the user on the website
     Route::post('/currency',    'updateCurrency');
+
+    // returns the list of languages available
+    Route::get('/shipping',     'listShipping');
+    // saves the language defined by the user on the website
+    Route::post('/shipping',    'updateShipping');
 });
 
 

@@ -56,6 +56,9 @@ This repo is to just have a small base to start your E-Commerce with [Lunar](htt
 - [X] Set Currencies
 
 `----------------------`
+- [X] List of shipping options
+
+`----------------------`
 - [ ] List of Groups
 - [ ] List of Channels
 

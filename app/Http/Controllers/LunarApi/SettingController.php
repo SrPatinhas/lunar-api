@@ -7,15 +7,24 @@ use App\Http\Requests\LunarAPI\Setting\Currency\CurrencyRequest;
 use App\Http\Resources\LunarAPI\Setting\Language\LanguageResource;
 use App\Http\Requests\LunarAPI\Setting\Language\LanguageRequest;
 use App\Http\Resources\LunarAPI\Setting\Currency\CurrencyResource;
-use App\Modifiers\ShippingModifier;
+use App\Http\Resources\LunarAPI\Setting\Shipping\ShippingResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
-use Lunar\Base\ShippingManifest;
+use Lunar\Base\ShippingModifiers;
+use Lunar\Facades\ShippingManifest;
+use Lunar\Facades\CartSession;
+use Lunar\Managers\CartSessionManager;
+use Lunar\Models\Cart;
 use Lunar\Models\Currency;
 use Lunar\Models\Language;
 
 class SettingController extends Controller
 {
+    /**
+     * The Cart instance.
+     */
+    public ?Cart $cart;
+
     /**
      * Returns a list of brands
      */
@@ -60,6 +69,46 @@ class SettingController extends Controller
      * Returns the brand detail, with the list of products associated
      */
     public function updateCurrency(CurrencyRequest $request)
+    {
+        $notFoundMessage = "";
+        $currency = Currency::where('code', $request->code)->first();
+
+        // if currency not found, default to the default currency
+        if(!$currency) {
+            $currency = Currency::where('default', 1)->first();
+            $notFoundMessage = ", as requested currency was not found on our system";
+        }
+        session(['currency'     => $currency->code  ]);
+        session(['currency_id'  => $currency->id    ]);
+
+        return response()->json([
+            'status' => 200,
+            'message' => "Currency set to '$currency->code'$notFoundMessage",
+        ]);
+    }
+
+
+    /**
+     * Returns a list of brands
+     */
+    public function listShipping(Request $request)
+    {
+        $cart = CartSession::current();
+        if(!$cart) {
+            $cart = Cart::create([
+                'currency_id' => session('currency_id', 2),
+                'channel_id' => 1,
+            ]);
+        }
+
+        return ShippingResource::collection(ShippingManifest::getOptions($cart));
+    }
+
+
+    /**
+     * Returns the brand detail, with the list of products associated
+     */
+    public function updateShipping(CurrencyRequest $request)
     {
         $notFoundMessage = "";
         $currency = Currency::where('code', $request->code)->first();
