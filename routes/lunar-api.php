@@ -39,7 +39,7 @@ Route::prefix('products')->controller(ProductController::class)->group(function 
     // return the list of products, based on search/filters terms
     Route::get('/',             'list');
     // return the product detail information
-    Route::get('/{id}/{slug}',  'detail');
+    Route::get('/{id}/{slug?}',  'detail');
     // return a list of featured products, based on some filter
     Route::get('/featured',     'featured');
 });

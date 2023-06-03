@@ -7,7 +7,7 @@ use App\Http\Resources\LunarAPI\Media\MediaThumbnailResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ProductAssociationResource extends JsonResource
+class ProductInverseAssociationResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -18,12 +18,12 @@ class ProductAssociationResource extends JsonResource
     {
         return [
             "type"  => $this->type,
-            "id"            => $this->target->id,
+            "id"            => $this->parent->id,
             // TODO -> check the current Store language or go to default
-            "slug"          => $this->target->urls->first(fn ($slug) => $slug->default())->slug ?? $this->target->urls->first()->slug,
-            "brand"         => new BrandResource($this->target->brand),
-            "attributes"    => $this->target->attribute_data,
-            "thumbnail"     => $this->target->thumbnail ? new MediaThumbnailResource($this->target->thumbnail->first()) : "",
+            "slug"          => $this->parent->urls->first(fn ($slug) => $slug->default())->slug ?? $this->parent->urls->first()->slug,
+            "brand"         => new BrandResource($this->parent->brand),
+            "attributes"    => $this->parent->attribute_data,
+            "thumbnail"     => $this->parent->thumbnail ? new MediaThumbnailResource($this->parent->thumbnail->first()) : "",
         ];
     }
 }

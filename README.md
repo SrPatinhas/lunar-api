@@ -21,8 +21,8 @@ This repo is to just have a small base to start your E-Commerce with [Lunar](htt
 - [X] List Products for a specific Collection
 
 #### Products
-- [ ] List Products
-- [ ] Product Details
+- [X] List Products
+- [X] Product Details
 - [ ] List Product Variants
 - [ ] List Products associated with given product
 
