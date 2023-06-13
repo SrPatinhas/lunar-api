@@ -15,6 +15,7 @@ class ProductDetailResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
+        //return parent::toArray($request);
         return [
             "id"            => $this->id,
             // TODO -> check the current Store language or go to default
@@ -23,6 +24,7 @@ class ProductDetailResource extends JsonResource
             "attributes"    => $this->attribute_data, //ProductAttributeResource::collection($this->attribute_data),
             "images"        => ProductMediaResource::collection($this->whenLoaded('images')),
             "tags"          => $this->tags ? TagsResource::collection($this->whenLoaded('tags')) : [],
+            "price"         => new PriceResource($this->whenLoaded('prices')->first()),
 
             // associated products
             "associations"          => ProductAssociationResource::collection($this->whenLoaded('associations')),

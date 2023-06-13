@@ -4,6 +4,7 @@ use App\Http\Controllers\LunarApi\BrandController;
 use App\Http\Controllers\LunarApi\CartController;
 use App\Http\Controllers\LunarApi\CheckoutController;
 use App\Http\Controllers\LunarApi\CollectionController;
+use App\Http\Controllers\LunarApi\SearchController;
 use App\Http\Controllers\LunarApi\SettingController;
 use App\Http\Controllers\LunarApi\OrderController;
 use App\Http\Controllers\LunarApi\ProductController;
@@ -64,6 +65,8 @@ Route::prefix('cart')->controller(CartController::class)->group(function () {
     Route::put('/update',               'updateItem');
     // removes item from the cart list
     Route::delete('/remove',            'removeItem');
+    // clear cart list
+    Route::delete('/clear',             'clearCart');
     // check if a certain discount is valid for the current cart and applies it
     Route::post('/discount',            'discount');
     // return list of suggestions based on cart products
@@ -84,9 +87,9 @@ Route::prefix('checkout')->controller(CheckoutController::class)->group(function
 Route::prefix('orders')->controller(OrderController::class)->group(function () {
     // return a list of orders made by the logged user
     Route::get('/',               'list');
-    // return a order detail
+    // return an order detail
     Route::get('/{id}',           'detail');
-    // return a order detail, based on the order ID and the email of the order
+    // return an order detail, based on the order ID and the email of the order
     Route::post('/{id}',          'detailAnonymous');
     // return the information about an order, with tracking information if possible
     Route::get('/{id}/tracking',  'tracking');

@@ -70,6 +70,7 @@ class SettingController extends Controller
      */
     public function updateCurrency(CurrencyRequest $request)
     {
+        // TODO update logic with "StorefrontSession" from LUNAR
         $notFoundMessage = "";
         $currency = Currency::where('code', $request->code)->first();
 
