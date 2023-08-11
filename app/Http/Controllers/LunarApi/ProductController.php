@@ -86,6 +86,7 @@ class ProductController extends Controller
                             })
                             ->status('published')
                             ->find($id);
+        //return $product;
         return new ProductDetailResource($product);
     }
 }
