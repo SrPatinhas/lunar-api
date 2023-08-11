@@ -14,9 +14,11 @@
         "guzzlehttp/guzzle": "^7.2",
         "inertiajs/inertia-laravel": "^0.6.8",
         "laravel/framework": "^10.8",
+        "laravel/horizon": "^5.16",
         "laravel/sanctum": "^3.2",
+        "laravel/telescope": "^4.14",
         "laravel/tinker": "^2.8",
-        "lunarphp/lunar": "^0.3.0-beta.3",
+        "lunarphp/lunar": "^0.4.1",
         "tightenco/ziggy": "^1.0"
     },
     "require-dev": {

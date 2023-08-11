@@ -19,7 +19,7 @@ class ShippingResource extends JsonResource
             "description"   => $this->description,
             "identifier"    => $this->identifier,
 
-            "price"     => new PriceResource($this->price),
+            "price"     => new PriceShippingResource($this->price),
             "tax"       => new TaxResource($this->taxClass),
 
             "taxReference"  => $this->taxReference,
