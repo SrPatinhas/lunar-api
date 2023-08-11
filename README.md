@@ -8,9 +8,22 @@ This repository is provided as a reference to learn how to use [Lunar](https://l
 This repo is to just have a small base to start your E-Commerce with [Lunar](https://lunarphp.io).
 
 ### Current version of Lunar
-- 0.3
+- 0.4.1
 
 ## RoadMap
+
+#### Authentication ([Fortify](https://laravel.com/docs/10.x/fortify))
+- [ ] Login
+- [ ] Register
+- [ ] Logout
+- [ ] Refresh Token
+- [ ] Forgot Password
+- [ ] Reset Password
+- [ ] Verify Email
+- [ ] Resend Verification Email
+- [ ] Update Profile
+- [ ] Update Password
+- [ ] Two Factor Authentication
 
 #### Brands
 - [X] List Brands
